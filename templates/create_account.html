@@ -1,0 +1,40 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% include 'menu.html' %}
+    <br><br>
+
+    <style>
+          #ctitle{
+        text-align: center;
+        font-size: 30px;
+        font-family: Arial;
+        background-color: blue;
+        color: white;
+        padding: 5px;
+    }
+    #input{
+
+    }
+    </style>
+    <form action="{% url 'save_customer' %}" method="post">
+    {% csrf_token %}
+    <div>
+         <table align="center" border="2">
+             <tr><th id="ctitle" colspan="2">Customer Details</th></tr>
+         <tr>
+             <th id="input">{{ cf }}</th>
+         </tr>
+         <tr>
+             <th colspan="2" style="text-align: center">
+                 <button type="submit">Register</button>
+             </th>
+         </tr>
+         {% for msg in messages %}
+              <tr><th colspan="2" style="text-align: center;font-size: 20px;color: blue">{{ msg }}</th></tr>
+         {% endfor %}
+
+         </table>
+    </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% include 'customer_menu.html' %}
+    {% load static %}
+<br><br>
+
+    <table align="center">
+         <tr style="color: white;background-color: dodgerblue"align="center">
+             <th width="1500">Free Movies</th>
+         </tr>
+         <tr>
+             <th>
+                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                 <div class="carousel-inner">
+                 <div class="carousel-item active" align="center">
+                  <img src="{% static 'images/dil-bechara.webp' %}" class="d-block w-60" alt="..." height="300" width="1000">
+                 </div>
+                 <div class="carousel-item" align="center">
+                    <img src="{% static 'images/laxmibomb.jpg' %}" class="d-block w-60" alt="..." height="300" width="1000">
+                 </div>
+                 <div class="carousel-item" align="center">
+                    <img src="{% static 'images/bulbul.jpg' %}" class="d-block w-60" alt="..." height="300" width="1000">
+                 </div>
+                 </div>
+                 </div>
+             </th>
+         </tr>
+        <tr>
+            <th height="20"></th>
+        </tr>
+        <tr>
+            <th>
+                <table align="center" border="0">
+                   <tr style="background-color: dodgerblue;color: white" align="center">
+                       <th colspan="5" width="1500">Paid Movies</th>
+                   </tr>
+                   <tr align="center">
+                     {% for x in data %}
+                       <th>
+                        <div class="card border-warning mb-3" style="max-width: 18rem;">
+                        <div class="card-header">{{ x.moviename }}</div>
+                        <div class="card-body text-dark">
+                        <h5 class="card-title">Release On:-{{ x.release }}</h5>
+                        <p class="card-text">Starring:-{{ x.casting }}</p>
+                        </div>
+                        </div>
+                       </th>
+                     {% endfor %}
+                </table>
+            </th>
+        </tr>
+    </table>
+
+
+{% endblock %}

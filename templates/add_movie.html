@@ -1,0 +1,80 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% include 'admin_menu.html' %}
+<br><br>
+    <style>
+    #mtitle{
+        text-align: center;
+        font-size: 30px;
+        font-family: Arial;
+        background-color: blue;
+        color: white;
+        padding: 5px;
+    }
+    #mdetail{
+         text-align: center;
+        font-size: 20px;
+        font-family: Arial;
+        background-color:maroon;
+        color: wheat;
+        padding: 5px;
+    }
+    </style>
+
+    <table align="center">
+      <tr>
+          <th>
+               <table align="center" border="2">
+                 <tr>
+                   <th colspan="7" id="mtitle">Add Movies</th>
+                 </tr>
+                 <tr id="mdetail">
+                   <th>Movie Name</th>
+                   <th>Type</th>
+                   <th>Rank</th>
+                   <th>Casting</th>
+                   <th>Release Year</th>
+                   <th>Image</th>
+                   <th>option</th>
+                 </tr>
+                 {% for x in data %}
+                 <tr>
+                   <th>
+                       <input type="text" value="{{ x.l }}" readonly name="m1">
+                   </th>
+                   <th>
+                       <input type="text" value="{{ x.q }}" readonly name="m2">
+                   </th>
+                   <th>
+                       <input type="number"  value="{{ x.rank }}" readonly name="m3">
+                   </th>
+                   <th>
+                       <input type="text" value="{{ x.s }}" readonly name="m4">
+                   </th>
+                   <th>
+                       <input type="number"  value="{{ x.y }}" readonly name="m5">
+                   </th>
+                   <th>
+                       {% for x in data.i %}
+                         <input type="text" value="{{ x.imageUrl }}" readonly name="m6">
+                       {% endfor %}
+                   </th>
+                   <th style="text-align: center;padding: 5px" width="100">
+                       <a href="{% url 'save_movie' %}?mdata={{ x.l }},{{ x.q }},{{ x.rank }},{{ x.s }},{{ x.y }},{{ x.imageurl }}">
+                        <button type="submit" class="btn btn-success">Add</button>
+                       </a>
+                   </th>
+                 </tr>
+
+
+                 {% endfor %}
+               </table>
+          </th>
+      </tr>
+        {% for msg in messages %}
+                 <tr>
+                 <th style="text-align: center;color: blue">{{ msg }}</th>
+                 </tr>
+                 {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% load static %}
+    <style>
+    body{
+        background-color: silver;
+    }
+    .title{
+        text-align: center;
+        font-size: 30px;
+        font-family: "Agency FB";
+        background-color: maroon;
+        color: wheat;
+        padding:5px;
+        border-radius: 10px;
+    }
+    </style>
+<div>
+
+    <br>
+    <div  style="background-color: silver;border-color: white;border-style: solid;border-width: 3px;border-radius: 10px;padding: 50px;width: 450px;margin-left: 900px" >
+
+        <form method="post" action="{% url 'login_customer' %}">
+        {% csrf_token %}
+        <table width="350">
+            <tr><th class="title" colspan="2">Sign Details</th></tr>
+            <tr><th>{{ lf }}</th></tr>
+            <tr>
+                <th style="text-align: center;padding-top: 10px" colspan="2">
+                    <button type="submit" class="btn btn-danger">Sign In</button>
+                </th>
+            </tr>
+              {% for msg in messages %}
+              <tr><th colspan="2" style="text-align: center;font-size: 20px;color: blue">{{ msg }}</th></tr>
+              {% endfor %}
+        </table>
+        </form>
+        <table align="center">
+             <tr>
+                <th colspan="2">
+                    <a href="{% url 'create_customer_account' %}">
+                        <button type="submit" style="background-color: yellow;font-size: 20px;font-family:Arial;padding: 10px;margin-top: 20px;border-radius: 10px">Create a New Account</button>
+                    </a>
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

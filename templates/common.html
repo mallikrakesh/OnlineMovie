@@ -1,0 +1,70 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body{background-color: black}
+        #title_border{
+            text-align: center;
+            background-color: darkcyan;
+
+        }
+        #title
+        {
+            text-align: center;
+            font-family: Algerian;
+            font-size: 80px;
+            color: burlywood;
+            padding: 10px;
+            width: fit-content;
+            margin-left: 500px;
+        }
+        img{
+            margin-left: 200px;
+            background-color: burlywood;
+        }
+        {##hyp_link{#}
+        {#    margin-left: 250px;#}
+        {#    font-size: 30px;#}
+        {#    color: white;#}
+
+        {#}#}
+    </style>
+    <title>online movie world</title>
+  </head>
+  <body>
+    <div>
+        <div id="title_border">
+            <table >
+                <tr>
+                    <th>
+                        <img src="{% static 'images/rs3.jpg' %}" width="150" height="100" >
+                    </th>
+                    <th >
+                        <h1 id="title">RS MOVIE WORLD</h1>
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div>
+            {% block common %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

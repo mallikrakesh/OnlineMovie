@@ -1,0 +1,75 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% include 'admin_menu.html' %}
+     {% load static %}
+<br><br>
+        <style>
+    #mtitle{
+        text-align: center;
+        font-size: 30px;
+        font-family: Arial;
+        background-color: blue;
+        color: white;
+        padding: 5px;
+    }
+    #mdetail{
+         text-align: center;
+        font-size: 20px;
+        font-family: Arial;
+        background-color:maroon;
+        color: wheat;
+        padding: 5px;
+    }
+    .mdata{
+        background-color: white;
+        color: black;
+        padding: 3px;
+        text-align: center;
+        font-size: 20px;
+    }
+    </style>
+    <table align="center">
+      <tr>
+          <th>
+               <table align="center" border="2">
+                 <tr >
+                   <th id="mtitle" colspan="7"> View Movies </th>
+                 </tr>
+                 <tr id="mdetail">
+                   <th>Movie Name</th>
+                   <th>Type</th>
+                   <th>Rank</th>
+                   <th>Casting</th>
+                   <th>Release Year</th>
+                   <th>Image</th>
+                   <th>Delete</th>
+                 </tr>
+                 {% for x in data %}
+                 <tr>
+                     <th class="mdata">{{ x.moviename }}</th>
+                     <th class="mdata">{{ x.t_ype }}</th>
+                     <th class="mdata">{{ x.rank }}</th>
+                     <th class="mdata">{{ x.casting }}</th>
+                     <th class="mdata">{{ x.release }}</th>
+                     <th class="mdata">
+{#                         <img src="{{ x.image.url }}">#}
+                     </th>
+                     <th>
+                         <a href="{% url 'delete_movie' %}?no={{ x.id }}">
+                             <img src="{% static 'images/trash.png' %}" width="30" height="30" style="text-align: center">
+                         </a>
+                     </th>
+                 </tr>
+
+
+                 {% endfor %}
+               </table>
+          </th>
+      </tr>
+        {% for msg in messages %}
+                 <tr>
+                 <th>{{ msg }}</th>
+                 </tr>
+                 {% endfor %}
+    </table>
+{% endblock %}
